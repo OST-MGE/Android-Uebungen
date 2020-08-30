@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_2nd_activity">Go to 2nd activity</string>
+    <string name="open_browser">Go to browser</string>
+    <string name="parameter_placeholder">Placeholder</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open_2nd_activity">FR: 2nd Activity</string>
+    <string name="open_browser">FR: Browser</string>
+    <string name="parameter_placeholder">FR: Placeholder</string>
+</resources>
