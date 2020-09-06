@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ComposeActivity">
+    tools:context=".activities.ComposeActivity">
 
     <TextView
         android:id="@+id/compose_text_from"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="From"
+        android:text="@string/compose_from"
+        android:labelFor="@id/compose_edittext_from"
         app:layout_constraintBaseline_toBaselineOf="@+id/compose_edittext_from"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -19,7 +20,8 @@
         android:id="@+id/compose_text_to"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="To"
+        android:text="@string/compose_to"
+        android:labelFor="@id/compose_edittext_to"
         app:layout_constraintBaseline_toBaselineOf="@+id/compose_edittext_to"
         app:layout_constraintEnd_toEndOf="@+id/compose_text_from"
         app:layout_constraintStart_toStartOf="@+id/compose_text_from" />
@@ -28,7 +30,8 @@
         android:id="@+id/compose_text_subject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Subject"
+        android:text="@string/compose_subject"
+        android:labelFor="@id/compose_edittext_subject"
         app:layout_constraintBaseline_toBaselineOf="@+id/compose_edittext_subject"
         app:layout_constraintEnd_toEndOf="@+id/compose_text_to"
         app:layout_constraintStart_toStartOf="@+id/compose_text_to" />
@@ -42,6 +45,7 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:enabled="false"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/compose_text_from"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,6 +57,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="@+id/compose_edittext_from"
         app:layout_constraintStart_toEndOf="@+id/compose_text_from"
         app:layout_constraintTop_toBottomOf="@+id/compose_edittext_from" />
@@ -64,6 +69,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="@+id/compose_edittext_to"
         app:layout_constraintStart_toEndOf="@+id/compose_text_to"
         app:layout_constraintTop_toBottomOf="@+id/compose_edittext_to" />
@@ -78,8 +84,9 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Compose email"
+        android:hint="@string/compose_content"
         android:inputType="textMultiLine|textAutoComplete|textAutoCorrect"
+        android:importantForAutofill="no"
         app:layout_constraintBottom_toTopOf="@+id/compose_button_send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +97,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Send Email"
+        android:text="@string/compose_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/compose_edittext_content"
         app:layout_constraintStart_toStartOf="@+id/compose_edittext_content" />

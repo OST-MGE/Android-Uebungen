@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
-        android:id="@+id/login_text_title"
+        android:id="@+id/login_app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TheApp"
+        android:text="@string/login_app_title"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="@dimen/login_title_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,19 +23,19 @@
         android:id="@+id/login_text_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version 1.0"
-        android:textSize="10dp"
+        android:text="@string/login_app_version"
+        android:textSize="@dimen/login_version_size"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/login_text_title"
-        app:layout_constraintStart_toEndOf="@+id/login_text_title"
+        app:layout_constraintTop_toBottomOf="@+id/login_app_title"
+        app:layout_constraintStart_toEndOf="@+id/login_app_title"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/login_text_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="www.theapp.com"
-        android:textSize="12dp"
+        android:text="@string/login_app_url"
+        android:textSize="@dimen/login_url_size"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +48,9 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:ems="10"
-        android:hint="email address"
+        android:hint="@string/login_input_email"
         android:inputType="textEmailAddress"
+        android:importantForAutofill="no"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.4" />
@@ -60,8 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/login_input_password"
         android:inputType="textPassword"
+        android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="@+id/login_edittext_email"
         app:layout_constraintStart_toStartOf="@+id/login_edittext_email"
         app:layout_constraintTop_toBottomOf="@+id/login_edittext_email" />
@@ -71,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="keep me logged in"
+        android:text="@string/login_input_keep_data"
         app:layout_constraintStart_toStartOf="@+id/login_edittext_password"
         app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
         app:layout_constraintTop_toBottomOf="@+id/login_edittext_password"
@@ -83,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:enabled="false"
+        android:checked="true"
         app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
         app:layout_constraintTop_toBottomOf="@+id/login_edittext_password" />
 
@@ -92,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Login"
+        android:text="@string/login_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_title_size">30sp</dimen>
+    <dimen name="login_version_size">10sp</dimen>
+    <dimen name="login_url_size">12sp</dimen>
+</resources>
