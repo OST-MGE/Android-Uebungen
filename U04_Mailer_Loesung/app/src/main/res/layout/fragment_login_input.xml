@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/distance_from_layout_to_content"
+    tools:context=".activities.LoginActivity">
+
+    <EditText
+        android:id="@+id/login_edittext_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_input_email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        style="@style/InputEditText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/login_edittext_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_between_controls_1x"
+        android:hint="@string/login_input_password"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
+        style="@style/InputEditText"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_email"
+        app:layout_constraintStart_toStartOf="@+id/login_edittext_email"
+        app:layout_constraintTop_toBottomOf="@+id/login_edittext_email" />
+
+    <TextView
+        android:id="@+id/login_text_keep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/distance_between_controls_1x"
+        android:text="@string/login_input_keep_data"
+        style="@style/KeepDataText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/login_switch_keep"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_edittext_password" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/login_switch_keep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/distance_between_controls_1x"
+        android:enabled="false"
+        android:checked="true"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
+        app:layout_constraintTop_toBottomOf="@+id/login_edittext_password" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
