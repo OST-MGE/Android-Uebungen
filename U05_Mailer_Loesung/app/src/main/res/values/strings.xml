@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Übung 05</string>
+    <string name="login_app_title">TheApp</string>
+    <string name="login_app_version">Version 1.0</string>
+    <string name="login_app_url">www.theapp.com</string>
+    <string name="login_input_email">email address</string>
+    <string name="login_input_password">password</string>
+    <string name="login_input_keep_data">keep email for next login</string>
+    <string name="login_button">Login</string>
+    <string name="login_invalid_password_length">Password too short</string>
+    <string name="outbox_new_message">New Message</string>
+    <string name="compose_from">From</string>
+    <string name="compose_to">To</string>
+    <string name="compose_subject">Subject</string>
+    <string name="compose_content">Compose email</string>
+    <string name="compose_send">Send Email</string>
+    <string name="compose_no_email_app_found">No mail app was found</string>
+    <string name="shared_invalid_email">Invalid address</string>
+</resources>
