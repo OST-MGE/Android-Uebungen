@@ -1,22 +1,42 @@
 package ch.ost.rj.mge.u05.mailer.model;
 
-import java.util.ArrayList;
+import android.content.Context;
+
+import androidx.room.Room;
+
+import java.util.List;
+
+import ch.ost.rj.mge.u05.mailer.model.storage.EmailDatabase;
 
 public final class EmailRepository {
-    private static ArrayList<Email> emails;
+    private static EmailDatabase database;
 
-    static {
-        emails = new ArrayList<>();
+    public static void initialize(Context context) {
+        database = Room.databaseBuilder(context, EmailDatabase.class, "mailer.db").allowMainThreadQueries().build();
 
-        emails.add(new Email("test@ost.ch", "mge@ost.ch", "Testnachricht 1", "Testnachricht ohne Inhalt"));
-        emails.add(new Email("test@ost.ch", "mge@ost.ch", "Testnachricht 2", "Testnachricht ohne Inhalt"));
+        if (getEmails().size() == 0) {
+            addEmail("test@ost.ch", "mge@ost.ch", "Testnachricht 1", "Testnachricht ohne Inhalt");
+            addEmail("test@ost.ch", "mge@ost.ch", "Testnachricht 2", "Testnachricht ohne Inhalt");
+        }
     }
 
-    public static ArrayList<Email> getEmails() {
-        return emails;
+    public static List<Email> getEmails() {
+        return database.emailDao().getEmails();
     }
 
     public static void addEmail(Email email) {
-        emails.add(email);
+        database.emailDao().insert(email);
+    }
+
+    public static Email addEmail(String from, String to, String subject, String content) {
+        Email email = new Email();
+        email.from = from;
+        email.to = to;
+        email.subject = subject;
+        email.content = content;
+
+        addEmail(email);
+
+        return email;
     }
 }

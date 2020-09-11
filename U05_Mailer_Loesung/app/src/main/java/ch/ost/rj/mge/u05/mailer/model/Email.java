@@ -1,31 +1,23 @@
 package ch.ost.rj.mge.u05.mailer.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "emails")
 public final class Email {
-    private String from;
-    private String to;
-    private String subject;
-    private String content;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
-    public Email(String from, String to, String subject, String content) {
-        this.from = from;
-        this.to = to;
-        this.subject = subject;
-        this.content = content;
-    }
+    @ColumnInfo
+    public String from;
 
-    public String getFrom() {
-        return from;
-    }
+    @ColumnInfo
+    public String to;
 
-    public String getTo() {
-        return to;
-    }
+    @ColumnInfo
+    public String subject;
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public String getContent() {
-        return content;
-    }
+    @ColumnInfo
+    public String content;
 }

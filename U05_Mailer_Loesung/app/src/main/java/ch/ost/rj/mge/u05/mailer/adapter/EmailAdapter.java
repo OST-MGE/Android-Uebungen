@@ -10,14 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ch.ost.rj.mge.u05.mailer.model.Email;
 
 public class EmailAdapter extends RecyclerView.Adapter<EmailViewHolder> {
-    private final ArrayList<Email> emails;
+    private List<Email> emails;
 
-    public EmailAdapter(ArrayList<Email> emails) {
+    public EmailAdapter() {
+        this.emails = new ArrayList<>();
+    }
+
+    public void updateEmails(List<Email> emails) {
         this.emails = emails;
+        this.notifyDataSetChanged();
     }
 
     @NonNull
@@ -40,8 +46,8 @@ public class EmailAdapter extends RecyclerView.Adapter<EmailViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull EmailViewHolder holder, int position) {
         Email email = this.emails.get(position);
-        holder.fromTextView.setText(email.getFrom());
-        holder.subjectTextView.setText(email.getSubject());
+        holder.fromTextView.setText(email.from);
+        holder.subjectTextView.setText(email.subject);
     }
 
     @Override

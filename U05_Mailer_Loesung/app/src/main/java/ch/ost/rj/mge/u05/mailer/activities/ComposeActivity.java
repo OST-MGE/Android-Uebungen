@@ -17,8 +17,11 @@ import ch.ost.rj.mge.u05.mailer.model.Email;
 import ch.ost.rj.mge.u05.mailer.model.EmailRepository;
 import ch.ost.rj.mge.u05.mailer.services.EmailVerificationService;
 import ch.ost.rj.mge.u05.mailer.services.InputVerificationService;
+import ch.ost.rj.mge.u05.mailer.services.VibrationService;
 
 public class ComposeActivity extends AppCompatActivity {
+    @SuppressWarnings("FieldCanBeLocal")
+    private static boolean SKIP_EMAIL_INTENT = true;
     private static final String FROM_EMAIL_KEY = "from";
     private final static float FULL_VISIBLE_ALPHA = 1.0f;
     private final static float HALF_VISIBLE_ALPHA = 0.5f;
@@ -86,7 +89,7 @@ public class ComposeActivity extends AppCompatActivity {
     }
 
     private void sendEmail() {
-        Email email = new Email(
+        Email email = EmailRepository.addEmail(
                 fromEditText.getText().toString(),
                 toEditText.getText().toString(),
                 subjectEditText.getText().toString(),
@@ -94,15 +97,20 @@ public class ComposeActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email.getTo() });
-        intent.putExtra(Intent.EXTRA_SUBJECT, email.getSubject());
-        intent.putExtra(Intent.EXTRA_TEXT, email.getContent());
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email.to });
+        intent.putExtra(Intent.EXTRA_SUBJECT, email.subject);
+        intent.putExtra(Intent.EXTRA_TEXT, email.content);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-            EmailRepository.addEmail(email);
+            VibrationService.vibrateSuccess();
+
+            if (!SKIP_EMAIL_INTENT) {
+                startActivity(intent);
+            }
+
             finish();
         } else {
+            VibrationService.vibrateError();
             Toast.makeText(this, R.string.compose_no_email_app_found, Toast.LENGTH_LONG).show();
         }
     }

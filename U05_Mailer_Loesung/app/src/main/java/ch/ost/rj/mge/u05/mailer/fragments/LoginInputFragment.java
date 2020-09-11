@@ -17,6 +17,7 @@ import android.widget.EditText;
 import ch.ost.rj.mge.u05.mailer.R;
 import ch.ost.rj.mge.u05.mailer.services.EmailVerificationService;
 import ch.ost.rj.mge.u05.mailer.services.InputVerificationService;
+import ch.ost.rj.mge.u05.mailer.services.VibrationService;
 
 public class LoginInputFragment extends Fragment {
     private final static int MINIMUM_PASSWORD_LENGTH = 10;
@@ -99,6 +100,7 @@ public class LoginInputFragment extends Fragment {
         keepDataSwitch = fragment.findViewById(R.id.login_switch_keep);
         keepDataSwitch.setChecked(initialKeepData);
         keepDataSwitch.setOnClickListener(v -> {
+            VibrationService.vibrateInfo();
             verifyInputs();
         });
 

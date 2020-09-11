@@ -13,13 +13,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import ch.ost.rj.mge.u05.mailer.R;
 import ch.ost.rj.mge.u05.mailer.adapter.EmailAdapter;
-import ch.ost.rj.mge.u05.mailer.adapter.EmailViewHolder;
 import ch.ost.rj.mge.u05.mailer.model.EmailRepository;
+import ch.ost.rj.mge.u05.mailer.services.VibrationService;
 
 public class OutboxActivity extends AppCompatActivity {
     private static final String LOGIN_EMAIL_KEY = "email";
     private String loginEmail;
-    RecyclerView.Adapter<EmailViewHolder> adapter;
+    EmailAdapter adapter;
 
     public static Intent createIntent(Context context, String fromEmail) {
         Intent intent = new Intent(context, OutboxActivity.class);
@@ -36,7 +36,7 @@ public class OutboxActivity extends AppCompatActivity {
         loginEmail = getIntent().getStringExtra(LOGIN_EMAIL_KEY);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        adapter = new EmailAdapter(EmailRepository.getEmails());
+        adapter = new EmailAdapter();
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 
         RecyclerView recyclerView = findViewById(R.id.outbox_sent_emails);
@@ -46,6 +46,7 @@ public class OutboxActivity extends AppCompatActivity {
 
         FloatingActionButton fab = findViewById(R.id.outbox_fab_new);
         fab.setOnClickListener(v -> {
+            VibrationService.vibrateInfo();
             showComposeActivity();
         });
     }
@@ -54,7 +55,7 @@ public class OutboxActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        adapter.notifyDataSetChanged();
+        adapter.updateEmails(EmailRepository.getEmails());
     }
 
     private void showComposeActivity() {
