@@ -20,4 +20,6 @@
         <activity android:name=".SecondActivity" android:label="@string/second_activity_title" />
     </application>
 
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
 </manifest>

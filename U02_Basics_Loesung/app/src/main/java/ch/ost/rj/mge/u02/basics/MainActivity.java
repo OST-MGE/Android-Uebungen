@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         browserButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ost.ch"));
 
+            // resolveActivity() braucht ab API-30 (Android 11) einen Eintrag im Manifest.
+            // Mehr dazu hier:
+            // https://developer.android.com/about/versions/11/privacy/package-visibility
+            // https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/62856745#62856745
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivity(intent);
             }
