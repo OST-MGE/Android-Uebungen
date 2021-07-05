@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Übung 02</string>
+    <string name="app_name">MGE U02</string>
     <string name="main_activity_title">Main Activity</string>
     <string name="second_activity_title">Second Activity</string>
     <string name="open_2nd_activity">Zu Activity 2</string>
