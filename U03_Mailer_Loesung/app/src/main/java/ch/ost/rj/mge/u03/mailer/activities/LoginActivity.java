@@ -16,7 +16,7 @@ import ch.ost.rj.mge.u03.mailer.services.EmailVerificationService;
 import ch.ost.rj.mge.u03.mailer.services.InputVerificationService;
 
 public class LoginActivity extends AppCompatActivity {
-    private final static String WEBSITE_URL = "http://www.theapp.com";
+    private final static String WEBSITE_URL = "http://www.ost.ch";
     private final static int MINIMUM_PASSWORD_LENGTH = 10;
     private final static float FULL_VISIBLE_ALPHA = 1.0f;
     private final static float HALF_VISIBLE_ALPHA = 0.5f;
