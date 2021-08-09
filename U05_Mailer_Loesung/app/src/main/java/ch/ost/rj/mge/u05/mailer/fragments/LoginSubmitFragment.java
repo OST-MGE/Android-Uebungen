@@ -39,14 +39,14 @@ public class LoginSubmitFragment extends Fragment {
 
         loginButton = fragment.findViewById(R.id.login_button_login);
         loginButton.setOnClickListener(v -> {
-            updateStatus(false);
+            updateButtonAvailability(false);
             callback.onSubmitClicked();
         });
 
         return fragment;
     }
 
-    public void updateStatus(boolean inputsAreValid) {
+    public void updateButtonAvailability(boolean inputsAreValid) {
         float buttonAlpha = inputsAreValid ? FULL_VISIBLE_ALPHA : HALF_VISIBLE_ALPHA;
 
         loginButton.setEnabled(inputsAreValid);

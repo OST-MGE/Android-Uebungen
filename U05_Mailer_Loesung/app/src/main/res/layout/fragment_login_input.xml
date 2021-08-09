@@ -33,14 +33,13 @@
 
     <TextView
         android:id="@+id/login_text_keep"
-        style="@style/KeepDataText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/distance_between_controls_1x"
-        android:gravity="right"
+        android:layout_marginLeft="@dimen/distance_between_controls_1x"
         android:text="@string/login_input_keep_data"
+        style="@style/KeepDataText"
         app:layout_constraintBaseline_toBaselineOf="@+id/login_switch_keep"
-        app:layout_constraintEnd_toStartOf="@+id/login_switch_keep"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/login_edittext_password" />
 

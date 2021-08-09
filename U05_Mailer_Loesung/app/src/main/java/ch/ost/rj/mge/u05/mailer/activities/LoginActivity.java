@@ -38,9 +38,10 @@ public class LoginActivity extends AppCompatActivity implements LoginInputFragme
         loginInfoFragment = LoginInfoFragment.create();
         loginInputFragment = LoginInputFragment.create(initialEmail, initialKeepDataState);
         loginSubmitFragment = LoginSubmitFragment.create();
-        loginProgressFragment = new LoginProgressFragment();
+        loginProgressFragment = LoginProgressFragment.create();
 
-        getSupportFragmentManager().beginTransaction()
+        getSupportFragmentManager()
+                .beginTransaction()
                 .add(R.id.login_info_container, loginInfoFragment)
                 .add(R.id.login_submit_container, loginSubmitFragment)
                 .add(R.id.login_input_container, loginInputFragment)
@@ -51,12 +52,13 @@ public class LoginActivity extends AppCompatActivity implements LoginInputFragme
     public void onInputChanged(String email, String password, boolean keepData, boolean inputsAreValid) {
         currentEmail = email;
         currentKeepData = keepData;
-        loginSubmitFragment.updateStatus(inputsAreValid);
+        loginSubmitFragment.updateButtonAvailability(inputsAreValid);
     }
 
     @Override
     public void onSubmitClicked() {
-        getSupportFragmentManager().beginTransaction()
+        getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.login_input_container, loginProgressFragment)
                 .commit();
 
