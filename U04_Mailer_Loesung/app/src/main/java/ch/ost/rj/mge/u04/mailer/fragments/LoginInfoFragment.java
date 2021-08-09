@@ -14,7 +14,7 @@ import android.widget.TextView;
 import ch.ost.rj.mge.u04.mailer.R;
 
 public class LoginInfoFragment extends Fragment {
-    private final static String WEBSITE_URL = "http://www.theapp.com";
+    private final static String WEBSITE_URL = "http://www.ost.ch";
 
     public static LoginInfoFragment create() {
         return new LoginInfoFragment();

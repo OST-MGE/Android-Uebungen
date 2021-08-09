@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/distance_from_layout_to_content"
+    android:padding="@dimen/distance_from_layout_to_content_3x"
     tools:context=".activities.LoginActivity">
 
     <FrameLayout

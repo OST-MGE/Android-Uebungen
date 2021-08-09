@@ -19,7 +19,7 @@ import ch.ost.rj.mge.u05.mailer.services.VibrationService;
 public class OutboxActivity extends AppCompatActivity {
     private static final String LOGIN_EMAIL_KEY = "email";
     private String loginEmail;
-    EmailAdapter adapter;
+    private EmailAdapter adapter;
 
     public static Intent createIntent(Context context, String fromEmail) {
         Intent intent = new Intent(context, OutboxActivity.class);

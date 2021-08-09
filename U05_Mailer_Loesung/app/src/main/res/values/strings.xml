@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Übung 05</string>
-    <string name="login_app_title">TheApp</string>
+    <string name="app_name">MGE U05</string>
+    <string name="login_app_title">MGE Mailer</string>
     <string name="login_app_version">Version 1.0</string>
-    <string name="login_app_url">www.theapp.com</string>
+    <string name="login_app_url">www.ost.com</string>
     <string name="login_input_email">email address</string>
     <string name="login_input_password">password</string>
     <string name="login_input_keep_data">keep email for next login</string>

@@ -23,10 +23,8 @@
         android:layout_height="wrap_content"
         android:text="@string/login_app_version"
         style="@style/AppVersionText"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/login_app_title"
-        app:layout_constraintStart_toEndOf="@+id/login_app_title"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_app_title" />
 
     <TextView
         android:id="@+id/login_text_url"

@@ -23,6 +23,7 @@
 
     <style name="AppUrlText">
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="InputEditText">
