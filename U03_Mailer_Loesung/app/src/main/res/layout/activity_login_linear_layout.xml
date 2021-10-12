@@ -1,0 +1,85 @@
+<!-- Alternative Lösung basierend auf der Idee von Marius Zindel -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activities.LoginActivity">
+
+    <TextView
+        android:id="@+id/login_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/login_title_size"
+        android:textStyle="bold"
+        android:text="@string/login_app_title" />
+
+    <TextView
+        android:id="@+id/login_text_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:textSize="@dimen/login_version_size"
+        android:text="@string/login_app_version" />
+
+    <TextView
+        android:id="@+id/login_text_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/login_url_size"
+        android:text="@string/login_app_url" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/login_edittext_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:autofillHints="emailAddress"
+        android:hint="@string/login_input_email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/login_edittext_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:autofillHints="password"
+        android:hint="@string/login_input_password"
+        android:inputType="textPassword" />
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/login_text_keep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:checked="true"
+        android:enabled="false"
+        android:text="@string/login_input_keep_data" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/login_button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/login_button" />
+
+</LinearLayout>
