@@ -7,30 +7,26 @@ public class EmailPersistenceService {
     private static final String FILE_NAME = "ch.ost.rj.mge.u05.mailer.preferences";
     private static final String EMAIL_KEY = "email";
     private static final String EMAIL_EMPTY = "none";
+    private static SharedPreferences preferences;
 
-    public static boolean hasStoredEmail(Context context) {
-        String email = getStoredEmail(context);
+    public static void initialize(Context context) {
+        preferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+    }
+
+    public static boolean hasStoredEmail() {
+        String email = getStoredEmail();
         return !email.equals(EMAIL_EMPTY);
     }
 
-    public static String getStoredEmail(Context context) {
-        SharedPreferences preferences = getPreferences(context);
-        String email = preferences.getString(EMAIL_KEY, EMAIL_EMPTY);
-
-        return email;
+    public static String getStoredEmail() {
+        return preferences.getString(EMAIL_KEY, EMAIL_EMPTY);
     }
 
-    public static void updateStoredEmail(Context context, String email) {
-        SharedPreferences preferences = getPreferences(context);
+    public static void updateStoredEmail(String email) {
         preferences.edit().putString(EMAIL_KEY, email).apply();
     }
 
-    public static void clearStoredEmail(Context context) {
-        SharedPreferences preferences = getPreferences(context);
+    public static void clearStoredEmail() {
         preferences.edit().remove(EMAIL_KEY).apply();
-    }
-
-    private static SharedPreferences getPreferences(Context context) {
-        return context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
     }
 }

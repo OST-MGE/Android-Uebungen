@@ -74,18 +74,18 @@ public class LoginActivity extends AppCompatActivity implements LoginInputFragme
     }
 
     private String getInitialEmail() {
-        return EmailPersistenceService.hasStoredEmail(this) ? EmailPersistenceService.getStoredEmail(this) : "";
+        return EmailPersistenceService.hasStoredEmail() ? EmailPersistenceService.getStoredEmail() : "";
     }
 
     private boolean getInitialKeepDataState() {
-        return EmailPersistenceService.hasStoredEmail(this);
+        return EmailPersistenceService.hasStoredEmail();
     }
 
     private void persistEmail() {
         if (currentKeepData) {
-            EmailPersistenceService.updateStoredEmail(this, currentEmail);
+            EmailPersistenceService.updateStoredEmail(currentEmail);
         } else {
-            EmailPersistenceService.clearStoredEmail(this);
+            EmailPersistenceService.clearStoredEmail();
         }
     }
 }
