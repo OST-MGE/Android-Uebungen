@@ -2,16 +2,13 @@ package ch.ost.rj.mge.u04.mailer.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 
 import ch.ost.rj.mge.u04.mailer.R;
 import ch.ost.rj.mge.u04.mailer.services.EmailVerificationService;
@@ -28,6 +25,10 @@ public class LoginInputFragment extends Fragment {
         return new LoginInputFragment();
     }
 
+    public LoginInputFragment() {
+        super(R.layout.fragment_login_input);
+    }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -39,10 +40,8 @@ public class LoginInputFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.fragment_login_input, container, false);
-
-        emailEditText = fragment.findViewById(R.id.login_edittext_email);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        emailEditText = view.findViewById(R.id.login_edittext_email);
         emailEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -65,7 +64,7 @@ public class LoginInputFragment extends Fragment {
             }
         });
 
-        passwordEditText = fragment.findViewById(R.id.login_edittext_password);
+        passwordEditText = view.findViewById(R.id.login_edittext_password);
         passwordEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
@@ -86,8 +85,6 @@ public class LoginInputFragment extends Fragment {
         });
 
         verifyInputs();
-
-        return fragment;
     }
 
     private void verifyInputs() {

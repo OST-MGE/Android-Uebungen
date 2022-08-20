@@ -2,13 +2,10 @@ package ch.ost.rj.mge.u04.mailer.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import ch.ost.rj.mge.u04.mailer.R;
 
@@ -23,6 +20,10 @@ public class LoginSubmitFragment extends Fragment {
         return new LoginSubmitFragment();
     }
 
+    public LoginSubmitFragment() {
+        super(R.layout.fragment_login_submit);
+    }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -34,16 +35,12 @@ public class LoginSubmitFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.fragment_login_submit, container, false);
-
-        loginButton = fragment.findViewById(R.id.login_button_login);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        loginButton = view.findViewById(R.id.login_button_login);
         loginButton.setOnClickListener(v -> {
             updateButtonAvailability(false);
             callback.onSubmitClicked();
         });
-
-        return fragment;
     }
 
     public void updateButtonAvailability(boolean inputsAreValid) {
