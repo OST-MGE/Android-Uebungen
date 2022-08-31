@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="distance_from_layout_to_content">8dp</dimen>
+    <dimen name="distance_from_layout_to_content_3x">24dp</dimen>
+    <dimen name="distance_between_controls_1x">8dp</dimen>
+    <dimen name="distance_between_controls_2x">16dp</dimen>
+    <dimen name="width_of_labels_on_compose_screen">80dp</dimen>
+</resources>

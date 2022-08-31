@@ -3,13 +3,10 @@ package ch.ost.rj.mge.u04.mailer.fragments;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import ch.ost.rj.mge.u04.mailer.R;
 
@@ -20,14 +17,14 @@ public class LoginInfoFragment extends Fragment {
         return new LoginInfoFragment();
     }
 
+    public LoginInfoFragment() {
+        super(R.layout.fragment_login_info);
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.fragment_login_info, container, false);
-
-        TextView urlTextView = fragment.findViewById(R.id.login_text_url);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        TextView urlTextView = view.findViewById(R.id.login_text_url);
         urlTextView.setOnClickListener(v -> openUrl());
-
-        return fragment;
     }
 
     private void openUrl() {
